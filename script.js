@@ -14,6 +14,8 @@ mainNav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.querySelectorAll("form").forEach((form) => {
+  if (form.dataset.netlify === "true") return;
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const settings = window.CASTELLANOS_SITE_CONTENT?.forms || {};
