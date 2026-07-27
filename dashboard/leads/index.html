@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Leads Dashboard | Castellanos Tile and Remodeling Services</title>
+  <link rel="icon" type="image/png" href="../../Castellanos icon-favicon.png">
+  <link rel="stylesheet" href="../../admin/admin.css">
+</head>
+<body class="admin-shell leads-shell">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="../../">
+      <img src="../../Castellanos Logo horizontal.png" alt="Castellanos logo">
+    </a>
+    <nav aria-label="Leads navigation">
+      <a class="active" href="./">Leads Inbox</a>
+      <a href="../">Website Editor</a>
+      <a href="../../admin/login.html">Admin Home</a>
+      <a href="../../" target="_blank" rel="noopener">Preview Website</a>
+    </nav>
+    <div class="admin-sidebar-card">
+      <strong>Leads Inbox</strong>
+      <span>Keep this page open to review new quote requests.</span>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <section class="admin-hero">
+      <div>
+        <p class="admin-eyebrow">Quote Requests</p>
+        <h1>Leads Inbox</h1>
+        <p>Review requests submitted from the website. Leads are also kept in Netlify Forms so email notifications can stay active.</p>
+        <p class="dashboard-status" data-dashboard-status>Loading leads...</p>
+      </div>
+      <div class="admin-actions">
+        <button class="admin-btn primary" type="button" data-refresh-leads>Refresh Leads</button>
+        <button class="admin-btn" type="button" data-login-button>Admin Login</button>
+        <a class="admin-btn" href="../">Edit Website</a>
+      </div>
+    </section>
+
+    <section class="status-grid" aria-label="Leads status">
+      <article><span>Total Leads</span><strong data-lead-count>0</strong></article>
+      <article><span>Source</span><strong>Website Quote Form</strong></article>
+      <article><span>Email Backup</span><strong>Netlify Forms</strong></article>
+      <article><span>Status</span><strong>Live Inbox</strong></article>
+    </section>
+
+    <section class="preview-card">
+      <div class="card-head">
+        <div>
+          <p class="admin-eyebrow">Inbox</p>
+          <h2>Recent Quote Requests</h2>
+        </div>
+        <button type="button" data-refresh-leads>Refresh</button>
+      </div>
+      <div class="leads-table" data-leads-list>
+        <p class="helper-text">No leads loaded yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="../../admin/admin.js"></script>
+</body>
+</html>

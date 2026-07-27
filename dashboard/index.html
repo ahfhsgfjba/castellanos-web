@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Dashboard | Castellanos Tile and Remodeling Services</title>
+  <link rel="icon" type="image/png" href="../Castellanos icon-favicon.png">
+  <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-shell">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="../">
+      <img src="../Castellanos Logo horizontal.png" alt="Castellanos logo">
+    </a>
+    <nav aria-label="Admin navigation">
+      <button class="active" data-panel-trigger="overview">Overview</button>
+      <button data-panel-trigger="business">Business Info</button>
+      <button data-panel-trigger="hero">Home / Hero</button>
+      <button data-panel-trigger="services">Services</button>
+      <button data-panel-trigger="projects">Projects</button>
+      <button data-panel-trigger="media">Media Library</button>
+      <button data-panel-trigger="faq">FAQ</button>
+      <button data-panel-trigger="seo">SEO</button>
+      <button data-panel-trigger="tracking">Tracking / Pixels</button>
+      <a href="leads/">Leads</a>
+    </nav>
+    <div class="admin-sidebar-card">
+      <strong>Private Dashboard</strong>
+      <span>Netlify Identity + Netlify Blobs</span>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <section class="admin-hero">
+      <div>
+        <p class="admin-eyebrow">Website Admin</p>
+        <h1>Castellanos Website Dashboard</h1>
+        <p>Edit the main website content from this visual dashboard. Text changes update the previews immediately; click Save Website Changes to publish them to the live site.</p>
+        <p class="dashboard-status" data-dashboard-status>Loading content...</p>
+      </div>
+      <div class="admin-actions">
+        <button class="admin-btn primary" type="button" data-save-content>Save Website Changes</button>
+        <a class="admin-btn" href="../" target="_blank" rel="noopener">Preview Website</a>
+        <a class="admin-btn" href="../admin/login.html">Admin Home</a>
+        <button class="admin-btn" type="button" data-login-button>Admin Login</button>
+      </div>
+    </section>
+
+    <section class="status-grid" aria-label="Website status">
+      <article><span>Status</span><strong data-field="status">Published</strong></article>
+      <article><span>Last Updated</span><strong data-field="lastUpdated">Review needed</strong></article>
+      <article><span>Business Phone</span><strong data-field="phone">(469) 890-5161</strong></article>
+      <article><span>Leads</span><strong data-lead-count>0</strong></article>
+    </section>
+
+    <section class="dashboard-panel active" data-panel="overview">
+      <div class="admin-grid">
+        <article class="preview-card large">
+          <div class="card-head">
+            <div><p class="admin-eyebrow">Home / Hero</p><h2>Homepage Preview</h2></div>
+            <button type="button" data-panel-trigger="hero">Edit Hero</button>
+          </div>
+          <div class="hero-preview">
+            <img data-field-img="heroImage" src="../assets/hero-remodel.jpg" alt="">
+            <div>
+              <span data-field="heroEyebrow">Dallas, TX Home Remodeling & Tile Experts</span>
+              <h3 data-field="heroHeadline">Home Remodeling & Tile Services in Dallas, TX</h3>
+              <p data-field="heroSubtitle">Bathrooms, kitchens, flooring, roofing, and custom tile.</p>
+              <button data-field="primaryCta">Get a Free Quote</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preview-card">
+          <div class="card-head">
+            <div><p class="admin-eyebrow">Google & SEO</p><h2>Search Preview</h2></div>
+            <button type="button" data-panel-trigger="seo">Edit SEO</button>
+          </div>
+          <div class="google-preview">
+            <span data-field="canonicalUrl">homeremodelingservicestx.com</span>
+            <h3 data-field="metaTitle">Home Remodeling & Tile Services in Dallas, TX</h3>
+            <p data-field="metaDescription">Professional home remodeling and tile services in Dallas, TX.</p>
+          </div>
+        </article>
+      </div>
+      <article class="preview-card">
+        <div class="card-head">
+          <div><p class="admin-eyebrow">Quick View</p><h2>Services</h2></div>
+          <button type="button" data-panel-trigger="services">Edit Services</button>
+        </div>
+        <div class="service-preview-grid" data-services></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="business">
+      <article class="preview-card">
+        <div class="card-head"><div><p class="admin-eyebrow">Business Info</p><h2>Contact & Company Details</h2></div></div>
+        <div class="editor-grid">
+          <label>Business Name<input data-edit="general.businessName"></label>
+          <label>Phone<input data-edit="general.phone"></label>
+          <label>Phone Link<input data-edit="general.phoneHref" placeholder="+14698905161"></label>
+          <label>Email<input data-edit="general.email"></label>
+          <label>Location<input data-edit="general.address"></label>
+          <label>Website URL<input data-edit="general.websiteUrl"></label>
+          <label class="wide">Service Areas<textarea data-edit-list="general.serviceAreas" rows="4"></textarea><small>One city per line.</small></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="hero">
+      <article class="preview-card">
+        <div class="card-head"><div><p class="admin-eyebrow">Home / Hero</p><h2>Edit Homepage Hero</h2></div></div>
+        <div class="editor-grid">
+          <label>Small Eyebrow<input data-edit="home.heroEyebrow"></label>
+          <label>Hero Headline<input data-edit="home.heroHeadline"></label>
+          <label class="wide">Hero Subtitle<textarea data-edit="home.heroSubtitle" rows="3"></textarea></label>
+          <label>Background Image Path<span class="field-with-action"><input data-edit="home.backgroundImage"><button type="button" data-inline-upload="home.backgroundImage" data-accept="image/jpeg,image/png,image/webp,image/gif">Upload</button></span></label>
+          <label>Primary CTA Text<input data-edit="home.primaryCtaText"></label>
+          <label>Primary CTA Link<input data-edit="home.primaryCtaLink"></label>
+          <label>Secondary CTA Text<input data-edit="home.secondaryCtaText"></label>
+          <label>Secondary CTA Link<input data-edit="home.secondaryCtaLink"></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="services">
+      <article class="preview-card">
+        <div class="card-head">
+          <div><p class="admin-eyebrow">Services</p><h2>Edit Service Cards</h2></div>
+          <button type="button" data-add-service>Add Service</button>
+        </div>
+        <div class="stack-editor" data-services-editor></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="projects">
+      <article class="preview-card">
+        <div class="card-head">
+          <div><p class="admin-eyebrow">Projects</p><h2>Project Gallery Preview</h2></div>
+          <button type="button" data-add-project>Add Project</button>
+        </div>
+        <div class="project-preview-grid" data-projects></div>
+        <div class="stack-editor" data-projects-editor></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="media">
+      <article class="preview-card">
+        <div class="card-head">
+          <div>
+            <p class="admin-eyebrow">Media Library</p>
+            <h2>Upload Images & Videos</h2>
+          </div>
+          <button type="button" data-refresh-media>Refresh Library</button>
+        </div>
+        <div class="notice-card">
+          <strong>Upload notes</strong>
+          <p>Images and short videos can be uploaded here. Most image fields also have their own Upload button, so the URL is inserted automatically. Use this library when you want to review or reuse uploaded files.</p>
+        </div>
+        <div class="media-upload">
+          <label class="media-drop">
+            <input type="file" data-media-file accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm">
+            <span>Choose image or video</span>
+          </label>
+          <label>Alt Text / Description<input data-media-alt placeholder="Describe the image for SEO"></label>
+          <label>Category<select data-media-category><option>general</option><option>hero</option><option>services</option><option>projects</option><option>about</option><option>videos</option></select></label>
+          <button class="admin-btn primary" type="button" data-upload-media>Upload Media</button>
+        </div>
+        <p class="dashboard-status" data-media-status>Choose a file to upload.</p>
+        <div class="media-grid" data-media-list></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="faq">
+      <article class="preview-card">
+        <div class="card-head">
+          <div><p class="admin-eyebrow">FAQ</p><h2>Edit Frequently Asked Questions</h2></div>
+          <button type="button" data-add-faq>Add FAQ</button>
+        </div>
+        <div class="stack-editor" data-faq-editor></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="seo">
+      <article class="preview-card">
+        <div class="card-head"><div><p class="admin-eyebrow">SEO</p><h2>Google & Social Preview</h2></div></div>
+        <div class="editor-grid">
+          <label>Meta Title<input data-edit="seo.metaTitle"></label>
+          <label>Canonical URL<input data-edit="seo.canonicalUrl"></label>
+          <label class="wide">Meta Description<textarea data-edit="seo.metaDescription" rows="4"></textarea></label>
+          <label>OG Title<input data-edit="seo.ogTitle"></label>
+          <label>OG Image<input data-edit="seo.ogImage"></label>
+          <label class="wide">OG Description<textarea data-edit="seo.ogDescription" rows="3"></textarea></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="tracking">
+      <article class="preview-card">
+        <div class="card-head">
+          <div>
+            <p class="admin-eyebrow">Tracking / Pixels</p>
+            <h2>Marketing & Analytics</h2>
+          </div>
+        </div>
+        <div class="notice-card">
+          <strong>Advanced settings</strong>
+          <p>Add only IDs provided by Google, Meta, or TikTok. Custom scripts should be used carefully because incorrect code can break tracking or slow the website.</p>
+        </div>
+        <div class="editor-grid">
+          <label>Google Tag Manager ID<input data-edit="tracking.googleTagManagerId" placeholder="GTM-XXXXXXX"></label>
+          <label>Google Analytics Measurement ID<input data-edit="tracking.googleAnalyticsMeasurementId" placeholder="G-XXXXXXXXXX"></label>
+          <label>Meta Pixel ID<input data-edit="tracking.metaPixelId" placeholder="1234567890"></label>
+          <label>Google Ads Conversion ID<input data-edit="tracking.googleAdsConversionId" placeholder="AW-XXXXXXXXX"></label>
+          <label>Google Ads Conversion Label<input data-edit="tracking.googleAdsConversionLabel"></label>
+          <label>TikTok Pixel ID<input data-edit="tracking.tiktokPixelId"></label>
+          <label class="wide">Custom Header Scripts<textarea data-edit="tracking.customHeaderScripts" rows="5" placeholder="Optional script for the page head"></textarea></label>
+          <label class="wide">Custom Body Scripts<textarea data-edit="tracking.customBodyScripts" rows="5" placeholder="Optional script after body starts"></textarea></label>
+          <label class="wide">Custom Footer Scripts<textarea data-edit="tracking.customFooterScripts" rows="5" placeholder="Optional script before body ends"></textarea></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel" data-panel="leads">
+      <article class="preview-card">
+        <div class="card-head">
+          <div><p class="admin-eyebrow">Leads</p><h2>Quote Requests</h2></div>
+          <button type="button" data-refresh-leads>Refresh Leads</button>
+        </div>
+        <div class="leads-table" data-leads-list>
+          <p class="helper-text">No leads loaded yet.</p>
+        </div>
+        <p class="helper-text">Leads are also sent through Netlify Forms so email notifications can remain active.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="../admin/admin.js"></script>
+</body>
+</html>

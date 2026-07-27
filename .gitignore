@@ -1,0 +1,6 @@
+node_modules/
+.netlify/
+test-results/
+audit-screenshots/
+admin-preview-check/
+npm-debug.log*

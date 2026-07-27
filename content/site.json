@@ -1,0 +1,326 @@
+{
+  "general": {
+    "businessName": "Castellanos Tile and Remodeling Services",
+    "phone": "(469) 890-5161",
+    "phoneHref": "+14698905161",
+    "email": "contact@homeremodelingservicestx.com",
+    "address": "Dallas, TX",
+    "mainCity": "Dallas",
+    "websiteUrl": "https://homeremodelingservicestx.com",
+    "serviceAreas": ["Dallas", "Fort Worth", "Arlington", "Plano", "Frisco", "Irving", "Garland", "Mesquite"],
+    "socialLinks": {
+      "googleBusinessProfile": "",
+      "facebook": "",
+      "instagram": "",
+      "youtube": "",
+      "tiktok": ""
+    }
+  },
+  "brand": {
+    "logo": "Castellanos Logo horizontal.png",
+    "footerLogo": "castellanos Logo horizontal white.png",
+    "favicon": "Castellanos icon-favicon.png",
+    "primaryColor": "#071927",
+    "secondaryColor": "#2B3440",
+    "accentColor": "#fab515",
+    "backgroundColor": "#F7F7F5",
+    "buttonStyle": "solid",
+    "fontFamily": "Montserrat"
+  },
+  "home": {
+    "heroEyebrow": "Dallas, TX Home Remodeling & Tile Experts",
+    "heroHeadline": "Home Remodeling & Tile Services in Dallas, TX",
+    "heroSubtitle": "Bathrooms, kitchens, flooring, roofing, and custom tile - clean, reliable workmanship across Dallas, TX.",
+    "heroSupportingText": "",
+    "backgroundImage": "assets/hero-remodel.jpg",
+    "mobileBackgroundImage": "",
+    "primaryCtaText": "Get a Free Quote",
+    "primaryCtaLink": "#contact",
+    "secondaryCtaText": "Call Now: (469) 890-5161",
+    "secondaryCtaLink": "tel:+14698905161",
+    "trustBadges": [
+      "Dallas, TX & Surrounding Areas",
+      "Bathroom · Kitchen · Flooring · Tile",
+      "Detail-Oriented Workmanship",
+      "Free Estimates"
+    ]
+  },
+  "about": {
+    "founderName": "Marlon Castellanos",
+    "founderTitle": "Founder",
+    "headline": "I'm Marlon, Founder of Castellanos Tile and Remodeling Services",
+    "text": [
+      "My team and I help homeowners across Dallas, TX with professional remodeling, tile installation, flooring, painting, drywall, and roofing services.",
+      "We work with attention to detail, clear communication, and respect for your home from start to finish."
+    ],
+    "image": "assets/Founder Led Service - Marlon.jpg",
+    "backgroundImage": "assets/Marlon founder background.jpg",
+    "stats": [
+      { "value": "Dallas", "label": "TX Local Service" },
+      { "value": "Residential", "label": "Projects" },
+      { "value": "Detail", "label": "Oriented Work" }
+    ],
+    "ctaText": "Request a Quote",
+    "ctaLink": "#contact"
+  },
+  "trust": {
+    "title": "Home Improvement Services You Can Count On",
+    "description": "Reliable residential services across Dallas, TX and surrounding areas.",
+    "cards": [
+      { "icon": "icon-pin", "title": "Local Service", "description": "Serving Dallas, TX and surrounding areas.", "active": true },
+      { "icon": "icon-home", "title": "Multiple Services", "description": "Bathroom, kitchen, tile, flooring, roofing, drywall, painting, and more.", "active": true },
+      { "icon": "icon-check", "title": "Detailed Work", "description": "Focused on clean finishes and reliable results.", "active": true },
+      { "icon": "icon-form", "title": "Easy Quotes", "description": "Share your project details and request a free estimate.", "active": true }
+    ]
+  },
+  "services": [
+    {
+      "title": "Bathroom Remodeling",
+      "description": "Upgrade your bathroom with a cleaner, more modern, and more functional design. We help with tile, showers, floors, walls, finishes, and complete bathroom improvement projects.",
+      "idealFor": ["shower upgrades", "bathroom floors", "tile replacement", "walls", "complete bathroom remodels"],
+      "image": "assets/bathroom-remodel.jpg",
+      "icon": "icon-bath",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Tile Installation",
+      "description": "Professional tile installation for bathrooms, kitchens, showers, floors, walls, and other areas of your home.",
+      "idealFor": ["ceramic tile", "bathroom tile", "kitchen tile", "shower tile", "marble installation", "floor tile replacement"],
+      "image": "assets/tile-installation.jpg",
+      "icon": "icon-tile",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Kitchen Remodeling",
+      "description": "Improve one of the most important spaces of your home with new finishes, cabinets, countertops, flooring, painting, and remodeling details.",
+      "idealFor": ["kitchen upgrades", "cabinet installation", "countertops", "flooring", "painting", "tile work"],
+      "image": "assets/kitchen-remodel.jpg",
+      "icon": "icon-kitchen",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Flooring Installation & Replacement",
+      "description": "Old or damaged floors can change the entire look of your home. We help install and replace flooring to make your space look cleaner, newer, and more comfortable.",
+      "idealFor": ["floor replacement", "tile floors", "interior remodeling", "home upgrades"],
+      "image": "assets/flooring.jpg",
+      "icon": "icon-floor",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Drywall, Painting & Interior Repairs",
+      "description": "Refresh your home with drywall installation, wall repairs, and interior or exterior painting services.",
+      "idealFor": ["drywall panels", "wall repair", "painting", "finishing details", "home improvement projects"],
+      "image": "assets/before-after-bathroom.jpg",
+      "icon": "icon-tools",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Roofing & Exterior Improvements",
+      "description": "We also help with roofing replacement, wood fences, pressure washing, exterior painting, and other exterior improvement services.",
+      "idealFor": ["roofing projects", "fences", "pressure washing", "exterior repairs", "outdoor home upgrades"],
+      "image": "assets/exterior-roofing.jpg",
+      "icon": "icon-roof",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Fireplace Remodeling",
+      "description": "Refresh your fireplace with updated tile, stone, trim, and clean finish details.",
+      "idealFor": ["fireplace tile", "living room upgrades", "before and after remodels"],
+      "image": "assets/fireplace-remodel.jpg",
+      "icon": "icon-home",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    },
+    {
+      "title": "Full Home Remodeling",
+      "description": "Coordinate multiple remodeling improvements with one local team.",
+      "idealFor": ["multi-room projects", "interior updates", "complete home improvements"],
+      "image": "assets/hero-remodel.jpg",
+      "icon": "icon-tools",
+      "ctaText": "Request Quote",
+      "ctaLink": "#contact",
+      "active": true
+    }
+  ],
+  "projects": [
+    {
+      "title": "Master Bathroom Remodel",
+      "category": "Bathrooms",
+      "description": "Bathroom tile, shower, and finish updates.",
+      "beforeImage": "Imagenes Remodeling/Remodelación de baño máster/IMG_4199.jpg",
+      "afterImage": "Imagenes Remodeling/Remodelación de baño máster/IMG_4203.jpg",
+      "images": [
+        "Imagenes Remodeling/Remodelación de baño máster/IMG_4199.jpg",
+        "Imagenes Remodeling/Remodelación de baño máster/IMG_4200.jpg",
+        "Imagenes Remodeling/Remodelación de baño máster/IMG_4201.jpg",
+        "Imagenes Remodeling/Remodelación de baño máster/IMG_4202.jpg",
+        "Imagenes Remodeling/Remodelación de baño máster/IMG_4203.jpg"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "title": "Kitchen Before & After",
+      "category": "Kitchens",
+      "description": "Kitchen remodeling project with before and after progress photos.",
+      "beforeImage": "Imagenes Remodeling/Remodelacion cocina, antes y despues/IMG_0397.jpeg",
+      "afterImage": "Imagenes Remodeling/Remodelacion cocina, antes y despues/IMG_1132.jpeg",
+      "images": [
+        "Imagenes Remodeling/Remodelacion cocina, antes y despues/IMG_0397.jpeg",
+        "Imagenes Remodeling/Remodelacion cocina, antes y despues/IMG_0493.jpeg",
+        "Imagenes Remodeling/Remodelacion cocina, antes y despues/IMG_1132.jpeg"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "title": "Wood Flooring Replacement",
+      "category": "Flooring",
+      "description": "Complete flooring replacement project.",
+      "images": [
+        "Imagenes Remodeling/Remplazo completo de piso de madera/IMG_1746.jpeg",
+        "Imagenes Remodeling/Remplazo completo de piso de madera/IMG_1837.jpeg",
+        "Imagenes Remodeling/Remplazo completo de piso de madera/IMG_1842.jpeg",
+        "Imagenes Remodeling/Remplazo completo de piso de madera/IMG_1843.jpeg"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "title": "Fireplace Remodel",
+      "category": "Fireplaces",
+      "description": "Fireplace remodeling and finish update.",
+      "images": [
+        "Imagenes Remodeling/chimenea3/IMG_4855.jpeg",
+        "Imagenes Remodeling/chimenea3/IMG_4914.jpeg"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "title": "Roof Replacement Before & After",
+      "category": "Roofing",
+      "description": "Residential roofing replacement project.",
+      "images": [
+        "Imagenes Remodeling/Remplazo e roofing antes y después/IMG_8788.jpeg",
+        "Imagenes Remodeling/Remplazo e roofing antes y después/IMG_8790.jpeg",
+        "Imagenes Remodeling/Remplazo e roofing antes y después/IMG_8816.jpeg",
+        "Imagenes Remodeling/Remplazo e roofing antes y después/IMG_8823.jpeg",
+        "Imagenes Remodeling/Remplazo e roofing antes y después/IMG_8825.jpeg"
+      ],
+      "featured": true,
+      "active": true
+    }
+  ],
+  "process": {
+    "title": "How We Work",
+    "description": "We make the remodeling process simple, clear, and easy to start.",
+    "steps": [
+      { "title": "1. Request a Quote", "description": "Tell us what you need, where the project is located, and what area of your home you want to improve.", "icon": "icon-form", "active": true },
+      { "title": "2. Share Your Project Details", "description": "You can send photos, measurements, or a short description of the work you need done.", "icon": "icon-email", "active": true },
+      { "title": "3. We Review the Project", "description": "We evaluate the service, materials, timeline, and the best way to move forward.", "icon": "icon-check", "active": true },
+      { "title": "4. We Schedule the Work", "description": "Once everything is clear, we schedule your remodeling, installation, repair, or improvement service.", "icon": "icon-calendar", "active": true },
+      { "title": "5. We Complete the Job", "description": "Our team works with care, attention to detail, and respect for your home.", "icon": "icon-shield", "active": true }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Castellanos Tile and Remodeling Services?",
+    "description": "Choosing the right remodeling team matters. You need someone who understands your project, communicates clearly, respects your home, and pays attention to the details that make the final result look right.",
+    "cards": [
+      { "icon": "icon-home", "title": "Complete Home Improvement Services", "description": "You can work with one team for bathrooms, tile, kitchens, flooring, drywall, painting, roofing, fences, pressure washing, and more.", "active": true },
+      { "icon": "icon-pin", "title": "Local Service in Dallas, TX", "description": "We serve homeowners in Dallas and surrounding areas with practical remodeling and repair solutions.", "active": true },
+      { "icon": "icon-tools", "title": "Detail-Oriented Work", "description": "From preparation to final finishes, we focus on clean, careful, and professional work.", "active": true },
+      { "icon": "icon-phone", "title": "Clear Communication", "description": "We listen to your needs, review your project, and explain the next steps before starting the work.", "active": true },
+      { "icon": "icon-shower", "title": "Interior & Exterior Solutions", "description": "Whether you need to improve a bathroom, kitchen, floor, roof, fence, or exterior area, we can help.", "active": true }
+    ]
+  },
+  "areas": {
+    "mainCity": "Dallas",
+    "cities": ["Dallas", "Fort Worth", "Arlington", "Plano", "Frisco", "Irving", "Garland", "Mesquite", "Grand Prairie", "Richardson", "Carrollton", "Addison", "Denton", "McKinney", "Allen", "Rockwall"],
+    "ctaText": "Call Now: (469) 890-5161",
+    "ctaLink": "tel:+14698905161",
+    "mapEmbed": "",
+    "mapImage": ""
+  },
+  "faq": [
+    { "question": "Do you offer free estimates?", "answer": "Yes. You can request a free quote by filling out the form or calling us directly.", "active": true },
+    { "question": "What areas do you serve?", "answer": "We serve Dallas, TX and nearby areas including Fort Worth, Arlington, Plano, Frisco, Irving, Garland, Mesquite, and surrounding cities.", "active": true },
+    { "question": "What types of remodeling projects do you handle?", "answer": "We help with bathroom remodeling, kitchen remodeling, tile installation, flooring, roofing, drywall, painting, fences, pressure washing, and more.", "active": true },
+    { "question": "Can I send photos of my project?", "answer": "Yes. Sending photos helps us better understand your project before providing the next steps.", "active": true },
+    { "question": "Do you work on both interior and exterior projects?", "answer": "Yes. We provide interior and exterior home improvement services.", "active": true },
+    { "question": "How do I get started?", "answer": "Call us at (469) 890-5161 or fill out the quote form with your project details.", "active": true }
+  ],
+  "forms": {
+    "recipientEmail": "contact@homeremodelingservicestx.com",
+    "successMessage": "Thank you. Your request is ready to send.",
+    "errorMessage": "Something went wrong. Please call us directly.",
+    "webhookUrl": "",
+    "crmIntegration": "",
+    "fields": [
+      { "name": "name", "label": "Full Name", "enabled": true, "required": true },
+      { "name": "phone", "label": "Phone Number", "enabled": true, "required": true },
+      { "name": "email", "label": "Email", "enabled": true, "required": false },
+      { "name": "city", "label": "City", "enabled": true, "required": true },
+      { "name": "service", "label": "Service Needed", "enabled": true, "required": true },
+      { "name": "description", "label": "Project Details", "enabled": true, "required": true },
+      { "name": "photos", "label": "Upload Photo", "enabled": false, "required": false },
+      { "name": "contact_method", "label": "Preferred Contact Method", "enabled": true, "required": false }
+    ]
+  },
+  "tracking": {
+    "googleTagManagerId": "",
+    "googleAnalyticsMeasurementId": "",
+    "metaPixelId": "",
+    "googleAdsConversionId": "",
+    "googleAdsConversionLabel": "",
+    "tiktokPixelId": "",
+    "customHeaderScripts": "",
+    "customBodyScripts": "",
+    "customFooterScripts": ""
+  },
+  "seo": {
+    "metaTitle": "Home Remodeling & Tile Services in Dallas, TX | Castellanos Tile and Remodeling Services",
+    "metaDescription": "Professional home remodeling, tile installation, bathroom remodeling, kitchen upgrades, flooring, roofing, drywall, painting, and exterior improvement services in Dallas, TX and nearby areas. Request a free quote today.",
+    "ogTitle": "Home Remodeling & Tile Services in Dallas, TX",
+    "ogDescription": "Professional remodeling, tile installation, bathrooms, kitchens, flooring, roofing, drywall, painting, and exterior improvement services in Dallas, TX.",
+    "ogImage": "assets/hero-remodel.jpg",
+    "twitterCardImage": "assets/hero-remodel.jpg",
+    "canonicalUrl": "https://homeremodelingservicestx.com",
+    "imageAltTexts": []
+  },
+  "reviews": [
+    {
+      "reviewerName": "Dallas Homeowner",
+      "rating": 5,
+      "reviewText": "Great communication, clean work, and excellent attention to detail.",
+      "source": "Manual",
+      "date": "2026-07-01",
+      "active": true,
+      "featured": true
+    }
+  ],
+  "googleBusinessProfile": {
+    "enabled": false,
+    "placeId": "",
+    "accountId": "",
+    "locationId": "",
+    "notes": "Automatic Google Business Profile review sync requires Google Cloud OAuth credentials and GBP API approval. Manual reviews are available now."
+  },
+  "publishing": {
+    "status": "published",
+    "lastUpdated": "2026-07-02T00:00:00-05:00"
+  }
+}

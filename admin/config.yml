@@ -1,0 +1,263 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: "uploads"
+public_folder: "/uploads"
+site_url: "https://homeremodelingservicestx.com"
+display_url: "https://homeremodelingservicestx.com"
+logo_url: "/Castellanos Logo horizontal.png"
+
+collections:
+  - name: "site"
+    label: "Website CMS"
+    files:
+      - name: "content"
+        label: "Dashboard Content"
+        file: "content/site.json"
+        format: "json"
+        editor:
+          preview: false
+        fields:
+          - label: "Publishing Status"
+            name: "publishing"
+            widget: "object"
+            hint: "Use this to mark whether the content is ready to publish. Netlify will publish after changes are saved through the CMS."
+            fields:
+              - { label: "Status", name: "status", widget: "select", options: ["draft", "published"], default: "published", hint: "Draft means still being reviewed. Published means ready for the live website." }
+              - { label: "Last Updated", name: "lastUpdated", widget: "datetime", required: false, hint: "Optional internal date so the team knows when content was last reviewed." }
+
+          - label: "Business Info"
+            name: "general"
+            widget: "object"
+            hint: "These details appear across the header, footer, quote buttons, contact sections, SEO, and local business schema."
+            fields:
+              - { label: "Business Name", name: "businessName", widget: "string", hint: "Used for brand references and SEO." }
+              - { label: "Phone", name: "phone", widget: "string", hint: "Shown in the header, footer, quote section, and call buttons." }
+              - { label: "Phone Link", name: "phoneHref", widget: "string", hint: "Use +14698905161 format so mobile users can tap to call." }
+              - { label: "Email", name: "email", widget: "string", hint: "Shown in contact sections and used as the default form recipient." }
+              - { label: "Address / Location", name: "address", widget: "string", hint: "Shown in the footer and local business information." }
+              - { label: "Main City", name: "mainCity", widget: "string" }
+              - { label: "Website URL", name: "websiteUrl", widget: "string" }
+              - { label: "Service Areas", name: "serviceAreas", widget: "list", field: { label: "City", name: "city", widget: "string" } }
+              - label: "Social Links"
+                name: "socialLinks"
+                widget: "object"
+                fields:
+                  - { label: "Google Business Profile", name: "googleBusinessProfile", widget: "string", required: false }
+                  - { label: "Facebook", name: "facebook", widget: "string", required: false }
+                  - { label: "Instagram", name: "instagram", widget: "string", required: false }
+                  - { label: "YouTube", name: "youtube", widget: "string", required: false }
+                  - { label: "TikTok", name: "tiktok", widget: "string", required: false }
+
+          - label: "Home Page / Hero"
+            name: "home"
+            widget: "object"
+            hint: "This controls the first section visitors see at the top of the homepage."
+            fields:
+              - { label: "Hero Eyebrow", name: "heroEyebrow", widget: "string", required: false, hint: "Small gold text above the main headline." }
+              - { label: "Hero Headline", name: "heroHeadline", widget: "string", hint: "Main title visitors see immediately when landing on the website." }
+              - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text", hint: "Short supporting message under the main headline." }
+              - { label: "Hero Supporting Text", name: "heroSupportingText", widget: "text", required: false, hint: "Optional additional copy for the hero area." }
+              - { label: "Background Image", name: "backgroundImage", widget: "image", hint: "Large desktop hero image behind the headline." }
+              - { label: "Mobile Background Image", name: "mobileBackgroundImage", widget: "image", required: false, hint: "Optional mobile-specific hero image." }
+              - { label: "Primary CTA Text", name: "primaryCtaText", widget: "string", hint: "Main button text, usually quote-focused." }
+              - { label: "Primary CTA Link", name: "primaryCtaLink", widget: "string", hint: "Use #contact to send visitors to the quote form." }
+              - { label: "Secondary CTA Text", name: "secondaryCtaText", widget: "string" }
+              - { label: "Secondary CTA Link", name: "secondaryCtaLink", widget: "string" }
+              - { label: "Trust Badges", name: "trustBadges", widget: "list", field: { label: "Badge", name: "badge", widget: "string" } }
+
+          - label: "Brand Settings"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Logo", name: "logo", widget: "image" }
+              - { label: "Footer Logo", name: "footerLogo", widget: "image" }
+              - { label: "Favicon", name: "favicon", widget: "image" }
+              - { label: "Primary Color", name: "primaryColor", widget: "color", enableAlpha: false }
+              - { label: "Secondary Color", name: "secondaryColor", widget: "color", enableAlpha: false }
+              - { label: "Accent Color", name: "accentColor", widget: "color", enableAlpha: false }
+              - { label: "Background Color", name: "backgroundColor", widget: "color", enableAlpha: false }
+              - { label: "Button Style", name: "buttonStyle", widget: "select", options: ["solid", "outline", "glass"], required: false }
+              - { label: "Font Family", name: "fontFamily", widget: "string", required: false }
+
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            hint: "These cards appear in the Our Remodeling & Home Improvement Services section. Reorder items here to change display order."
+            fields:
+              - { label: "Active", name: "active", widget: "boolean", default: true, hint: "Turn off to hide this service from the public website." }
+              - { label: "Service Title", name: "title", widget: "string", hint: "Service name shown on the card." }
+              - { label: "Service Description", name: "description", widget: "text", hint: "Short description shown under the service title." }
+              - { label: "Ideal For List", name: "idealFor", widget: "list", hint: "Short benefit or use-case tags shown in the service card.", field: { label: "Item", name: "item", widget: "string" } }
+              - { label: "Service Image", name: "image", widget: "image", hint: "Use vertical or portrait-friendly images when possible." }
+              - { label: "Service Icon", name: "icon", widget: "select", options: ["icon-bath", "icon-tile", "icon-kitchen", "icon-floor", "icon-home", "icon-roof", "icon-shower", "icon-tools", "icon-shield", "icon-check", "icon-pin", "icon-phone", "icon-email", "icon-form", "icon-calendar"] }
+              - { label: "CTA Text", name: "ctaText", widget: "string" }
+              - { label: "CTA Link", name: "ctaLink", widget: "string" }
+
+          - label: "Projects / Gallery"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.category}}"
+            hint: "These projects appear in the Our Work gallery. Multiple images create a carousel automatically."
+            fields:
+              - { label: "Active", name: "active", widget: "boolean", default: true, hint: "Turn off to hide this project from the website." }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Use for important projects that may be highlighted later." }
+              - { label: "Project Title", name: "title", widget: "string" }
+              - { label: "Project Category", name: "category", widget: "select", options: ["Bathrooms", "Kitchens", "Flooring", "Roofing", "Fireplaces", "Full Remodels", "Before & After", "Videos"] }
+              - { label: "Project Description", name: "description", widget: "text", required: false }
+              - { label: "Before Image", name: "beforeImage", widget: "image", required: false }
+              - { label: "After Image", name: "afterImage", widget: "image", required: false }
+              - { label: "Gallery Images", name: "images", widget: "list", hint: "Add two or more images to create a slider/carousel on the website.", field: { label: "Image", name: "image", widget: "image" } }
+
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Founder Name", name: "founderName", widget: "string" }
+              - { label: "Founder Title", name: "founderTitle", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "About Text", name: "text", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              - { label: "Founder / Team Image", name: "image", widget: "image" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - { label: "CTA Text", name: "ctaText", widget: "string" }
+              - { label: "CTA Link", name: "ctaLink", widget: "string" }
+
+          - label: "Why Choose Us"
+            name: "whyChooseUs"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Trust Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Active", name: "active", widget: "boolean", default: true }
+                  - { label: "Icon", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "How We Work"
+            name: "process"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Active", name: "active", widget: "boolean", default: true }
+                  - { label: "Step Title", name: "title", widget: "string" }
+                  - { label: "Step Description", name: "description", widget: "text" }
+                  - { label: "Step Icon", name: "icon", widget: "string" }
+
+          - label: "Areas We Serve"
+            name: "areas"
+            widget: "object"
+            fields:
+              - { label: "Main City", name: "mainCity", widget: "string" }
+              - { label: "Cities", name: "cities", widget: "list", field: { label: "City", name: "city", widget: "string" } }
+              - { label: "CTA Text", name: "ctaText", widget: "string" }
+              - { label: "CTA Link", name: "ctaLink", widget: "string" }
+              - { label: "Optional Map Embed", name: "mapEmbed", widget: "text", required: false }
+              - { label: "Optional Map Image", name: "mapImage", widget: "image", required: false }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Active", name: "active", widget: "boolean", default: true }
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+          - label: "Forms / Leads"
+            name: "forms"
+            widget: "object"
+            hint: "The public form is handled by Netlify Forms. Leads are viewed in Netlify Dashboard > Forms, not inside this CMS."
+            fields:
+              - { label: "Form Recipient Email", name: "recipientEmail", widget: "string", hint: "Default email used by fallback form logic. Netlify email notifications are configured in Netlify." }
+              - { label: "Success Message", name: "successMessage", widget: "string", hint: "Message visitors see after successfully sending the quote request." }
+              - { label: "Error Message", name: "errorMessage", widget: "string", hint: "Message shown if the form cannot be submitted." }
+              - { label: "Optional Webhook URL", name: "webhookUrl", widget: "string", required: false, hint: "Optional future CRM/webhook integration. Leave blank if not used." }
+              - { label: "Optional CRM Integration Field", name: "crmIntegration", widget: "string", required: false, hint: "Notes or identifier for a future CRM setup." }
+              - label: "Quote Form Fields"
+                name: "fields"
+                widget: "list"
+                hint: "Enable, hide, or require fields on the quote form."
+                fields:
+                  - { label: "Field Name", name: "name", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Required", name: "required", widget: "boolean", default: false }
+
+          - label: "Reviews"
+            name: "reviews"
+            widget: "list"
+            summary: "{{fields.reviewerName}} - {{fields.rating}} stars"
+            hint: "Reviews are currently hidden on the public website. Keep them here for future use after Google Business Profile is ready."
+            fields:
+              - { label: "Active", name: "active", widget: "boolean", default: true }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Useful later if selected reviews are shown publicly." }
+              - { label: "Reviewer Name", name: "reviewerName", widget: "string" }
+              - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, value_type: "int" }
+              - { label: "Review Text", name: "reviewText", widget: "text" }
+              - { label: "Source", name: "source", widget: "string", required: false }
+              - { label: "Date", name: "date", widget: "date", required: false }
+
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            hint: "These fields affect Google search appearance, browser tabs, and social sharing previews."
+            fields:
+              - { label: "Meta Title", name: "metaTitle", widget: "string", hint: "Blue title that can appear in Google results and browser tabs." }
+              - { label: "Meta Description", name: "metaDescription", widget: "text", hint: "Short description that can appear in Google search results." }
+              - { label: "OG Title", name: "ogTitle", widget: "string", required: false, hint: "Title used when sharing the website on social platforms." }
+              - { label: "OG Description", name: "ogDescription", widget: "text", required: false, hint: "Description used when sharing the website on social platforms." }
+              - { label: "OG Image", name: "ogImage", widget: "image", required: false, hint: "Preview image for Facebook, LinkedIn, messages, and similar platforms." }
+              - { label: "Twitter Card Image", name: "twitterCardImage", widget: "image", required: false, hint: "Preview image for X/Twitter cards." }
+              - { label: "Canonical URL", name: "canonicalUrl", widget: "string", required: false, hint: "Official URL for this page. Usually the live homepage URL." }
+              - label: "Image Alt Texts"
+                name: "imageAltTexts"
+                widget: "list"
+                required: false
+                hint: "Alt text helps SEO and accessibility. Describe the image clearly."
+                fields:
+                  - { label: "Image Path", name: "path", widget: "string" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+
+          - label: "Tracking / Pixels"
+            name: "tracking"
+            widget: "object"
+            hint: "Add marketing IDs only after the accounts are created. Avoid pasting full scripts unless required."
+            fields:
+              - { label: "Google Tag Manager ID", name: "googleTagManagerId", widget: "string", required: false }
+              - { label: "Google Analytics Measurement ID", name: "googleAnalyticsMeasurementId", widget: "string", required: false }
+              - { label: "Meta Pixel ID", name: "metaPixelId", widget: "string", required: false }
+              - { label: "Google Ads Conversion ID", name: "googleAdsConversionId", widget: "string", required: false }
+              - { label: "Google Ads Conversion Label", name: "googleAdsConversionLabel", widget: "string", required: false }
+              - { label: "TikTok Pixel ID", name: "tiktokPixelId", widget: "string", required: false }
+              - { label: "Custom Header Scripts", name: "customHeaderScripts", widget: "text", required: false }
+              - { label: "Custom Body Scripts", name: "customBodyScripts", widget: "text", required: false }
+              - { label: "Custom Footer Scripts", name: "customFooterScripts", widget: "text", required: false }
+
+          - label: "Google Business Profile"
+            name: "googleBusinessProfile"
+            widget: "object"
+            hint: "Automatic Google review sync requires Google API/OAuth setup. Manual reviews can be added above for future use."
+            fields:
+              - { label: "Enable Automatic Sync", name: "enabled", widget: "boolean", default: false }
+              - { label: "Place ID", name: "placeId", widget: "string", required: false }
+              - { label: "GBP Account ID", name: "accountId", widget: "string", required: false }
+              - { label: "GBP Location ID", name: "locationId", widget: "string", required: false }
+              - { label: "Notes", name: "notes", widget: "text", required: false }

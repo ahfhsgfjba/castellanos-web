@@ -1,0 +1,12 @@
+{
+  "name": "castellanos-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx netlify dev",
+    "serve": "npx serve . -l 4173"
+  },
+  "dependencies": {
+    "@netlify/blobs": "10.1.0"
+  }
+}
