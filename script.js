@@ -14,10 +14,11 @@ mainNav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.querySelectorAll("form").forEach((form) => {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const settings = window.CASTELLANOS_SITE_CONTENT?.forms || {};
     const status = form.querySelector(".form-status");
+    const submitButton = form.querySelector("[type='submit']");
     const formData = new FormData(form);
     const payload = Object.fromEntries(
       Array.from(formData.entries()).filter(([, value]) => typeof value === "string")
@@ -25,23 +26,27 @@ document.querySelectorAll("form").forEach((form) => {
 
     if (form.dataset.netlify === "true") {
       if (status) status.textContent = "Sending your request...";
-      fetch("/.netlify/functions/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      }).catch(() => {});
-      fetch("/", {
-        method: "POST",
-        body: formData
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error("Netlify form request failed");
-          if (status) status.textContent = settings.successMessage || "Thank you. Your request was sent.";
-          form.reset();
-        })
-        .catch(() => {
-          if (status) status.textContent = settings.errorMessage || "Something went wrong. Please call us directly.";
+      if (submitButton) submitButton.disabled = true;
+      try {
+        const body = new URLSearchParams(formData);
+        await fetch("/.netlify/functions/submit-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body
         });
+        if (!response.ok) throw new Error("Netlify form request failed");
+        if (status) status.textContent = settings.successMessage || "Thank you. Your request was sent.";
+        form.reset();
+      } catch {
+        if (status) status.textContent = settings.errorMessage || "Something went wrong. Please call us directly.";
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
       return;
     }
 
@@ -62,15 +67,7 @@ document.querySelectorAll("form").forEach((form) => {
       return;
     }
 
-    const recipient = settings.recipientEmail || "contact@homeremodelingservicestx.com";
-    const subject = encodeURIComponent("Quote request from website");
-    const body = encodeURIComponent(
-      Array.from(formData.entries())
-        .filter(([, value]) => typeof value === "string" && value.trim())
-        .map(([key, value]) => `${key}: ${value}`)
-        .join("\n")
-    );
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    if (status) status.textContent = settings.errorMessage || "Something went wrong. Please call us directly.";
   });
 });
 
