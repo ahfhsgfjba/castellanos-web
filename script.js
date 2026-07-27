@@ -15,22 +15,40 @@ mainNav?.querySelectorAll("a").forEach((link) => {
 
 document.querySelectorAll("form").forEach((form) => {
   if (form.id === "contact-form" || form.name === "quote-request" || form.dataset.netlify === "true") {
-    form.addEventListener("submit", () => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
       const formData = new FormData(form);
+      const status = form.querySelector(".form-status");
+      const submitButton = form.querySelector("[type='submit']");
       const payload = Object.fromEntries(
         Array.from(formData.entries()).filter(([, value]) => typeof value === "string")
       );
       const body = JSON.stringify(payload);
       if (navigator.sendBeacon) {
         navigator.sendBeacon("/.netlify/functions/submit-lead", new Blob([body], { type: "application/json" }));
-        return;
+      } else {
+        fetch("/.netlify/functions/submit-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+          keepalive: true
+        }).catch(() => {});
       }
-      fetch("/.netlify/functions/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body,
-        keepalive: true
-      }).catch(() => {});
+
+      if (status) status.textContent = "Sending your request...";
+      if (submitButton) submitButton.disabled = true;
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+        if (!response.ok) throw new Error("FormSubmit request failed");
+        window.location.href = "/success.html";
+      } catch {
+        if (status) status.textContent = "Something went wrong. Please call us directly.";
+        if (submitButton) submitButton.disabled = false;
+      }
     });
     return;
   }
