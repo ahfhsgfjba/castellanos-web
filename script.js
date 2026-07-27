@@ -14,7 +14,7 @@ mainNav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.querySelectorAll("form").forEach((form) => {
-  if (form.dataset.netlify === "true") return;
+  if (form.id === "contact-form" || form.name === "quote-request" || form.dataset.netlify === "true") return;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
