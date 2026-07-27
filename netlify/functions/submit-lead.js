@@ -1,9 +1,18 @@
 const { response, leadsStore, safeJson, normalizeLead } = require("./_shared");
 
+function readPayload(event) {
+  const contentType = event.headers["content-type"] || event.headers["Content-Type"] || "";
+  if (contentType.includes("application/json")) return safeJson(event.body);
+  if (contentType.includes("application/x-www-form-urlencoded") || contentType.includes("text/plain")) {
+    return Object.fromEntries(new URLSearchParams(event.body || ""));
+  }
+  return safeJson(event.body);
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return response(405, { error: "Method not allowed" });
 
-  const lead = normalizeLead({ ...safeJson(event.body), source: "dashboard-copy" });
+  const lead = normalizeLead({ ...readPayload(event), source: "dashboard-copy" });
   const store = leadsStore();
   const index = await store.get("index.json", { type: "json" });
   const leads = Array.isArray(index) ? index : [];

@@ -14,7 +14,26 @@ mainNav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.querySelectorAll("form").forEach((form) => {
-  if (form.id === "contact-form" || form.name === "quote-request" || form.dataset.netlify === "true") return;
+  if (form.id === "contact-form" || form.name === "quote-request" || form.dataset.netlify === "true") {
+    form.addEventListener("submit", () => {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(
+        Array.from(formData.entries()).filter(([, value]) => typeof value === "string")
+      );
+      const body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon("/.netlify/functions/submit-lead", new Blob([body], { type: "application/json" }));
+        return;
+      }
+      fetch("/.netlify/functions/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body,
+        keepalive: true
+      }).catch(() => {});
+    });
+    return;
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
