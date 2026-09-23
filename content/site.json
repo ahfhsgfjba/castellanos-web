@@ -303,11 +303,114 @@
   },
   "reviews": [
     {
-      "reviewerName": "Dallas Homeowner",
+      "reviewerName": "Matt c.",
       "rating": 5,
-      "reviewText": "Great communication, clean work, and excellent attention to detail.",
-      "source": "Manual",
-      "date": "2026-07-01",
+      "reviewText": "Great quality work, completed timely, and very easy to work with. Would definitely recommend.",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Jacqueline M.",
+      "rating": 5,
+      "reviewText": "Great job!",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Brandon C.",
+      "rating": 5,
+      "reviewText": "Good prices. Fast to respond and great work. Highly recommend!!!!",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Chantz D.",
+      "rating": 5,
+      "reviewText": "Marlon was easy to work with and quality was great. My project wasn’t huge but he took his time and did a great job.",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Clint R.",
+      "rating": 5,
+      "reviewText": "Marlon did a great job installing plank flooring and tile in my bathrooms. He was good to work with!",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Ethan I.",
+      "rating": 5,
+      "reviewText": "I hired Marlon to replace the water stained tile in my shower pan. He was professional and worked with great skill and care on my project. I was very happy with the outcome and will be hiring him again for future projects",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Enwe O.",
+      "rating": 5,
+      "reviewText": "Finally got our job finished after so many disappointments. Glad I found you",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Satisfied Customer R.",
+      "rating": 5,
+      "reviewText": "Marlo was the only contractor to give me a quote based on the pictures I provided. Also, he came out next day and the work was completed as promised. He cleaned up well also. The restroom floors look great.",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Andres L.",
+      "rating": 5,
+      "reviewText": "For my part, I have nothing bad to think or say about Mr. Marlon because he has done a great job for me and that makes me happy... I definitely recommend him 👌",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Justin G.",
+      "rating": 5,
+      "reviewText": "very good guy to do remodeling work because he is very detail oriented and is always pleasing his customer... would definitely hire him again",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Óscar J.",
+      "rating": 5,
+      "reviewText": "I was very satisfied with his work, very responsible",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Erika H.",
+      "rating": 5,
+      "reviewText": "Estoy muy satisfecha con su trabajo, muy profesional y Responsable lo cual eso habla muy bien.",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Liseth A.",
+      "rating": 5,
+      "reviewText": "excellent work. I am very satisfied with the work he did for me, he is a very responsible, kind person and above all a very efficient person in his work. Yes, I would hire him again. Thank you.",
+      "source": "Thumbtack",
+      "active": true,
+      "featured": true
+    },
+    {
+      "reviewerName": "Yamileth C.",
+      "rating": 5,
+      "reviewText": "Excelente trabajador",
+      "source": "Thumbtack",
       "active": true,
       "featured": true
     }

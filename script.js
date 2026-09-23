@@ -229,6 +229,104 @@ function initSingleCarousel(carousel) {
 
 document.querySelectorAll("[data-project-carousel]").forEach(initSingleCarousel);
 
+// -- Thumbtack reviews carousel --
+function initReviewsCarousel() {
+  const carousel = document.querySelector("#tt-review-carousel");
+  if (!carousel || carousel.dataset.carouselInit === "1") return;
+  const track = carousel.querySelector("[data-reviews-track]");
+  const slides = Array.from(carousel.querySelectorAll(".review-slide"));
+  const dots = carousel.querySelector("[data-reviews-dots]");
+  const prev = carousel.querySelector("[data-reviews-prev]");
+  const next = carousel.querySelector("[data-reviews-next]");
+  if (!track || !slides.length) return;
+  carousel.dataset.carouselInit = "1";
+  let currentGroup = 0;
+  let touchX = 0;
+  let autoplayTimer = null;
+  let resumeTimer = null;
+  let isVisible = true;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const visibleCount = () => window.matchMedia("(max-width: 600px)").matches ? 1 : window.matchMedia("(max-width: 840px)").matches ? 2 : 3;
+  const groupCount = () => Math.ceil(slides.length / visibleCount());
+  let dotButtons = [];
+
+  function renderDots() {
+    const total = groupCount();
+    dots.innerHTML = Array.from({ length: total }, (_, index) => `<button type="button" class="reviews-carousel-dot" aria-label="Go to Thumbtack review group ${index + 1} of ${total}"></button>`).join("");
+    dotButtons = Array.from(dots.children);
+    dotButtons.forEach((dot, index) => dot.addEventListener("click", () => { go(index); pauseForInteraction(); }));
+  }
+
+  function go(group) {
+    const count = visibleCount();
+    currentGroup = ((group % groupCount()) + groupCount()) % groupCount();
+    const slideIndex = currentGroup * count;
+    track.style.transform = `translateX(-${slides[slideIndex].offsetLeft}px)`;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex >= currentGroup * count && slideIndex < (currentGroup + 1) * count;
+      slide.setAttribute("aria-hidden", String(!active));
+      slide.inert = !active;
+    });
+    dotButtons.forEach((dot, dotIndex) => {
+      const active = dotIndex === currentGroup;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-current", active ? "true" : "false");
+    });
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (reducedMotion.matches || !isVisible || groupCount() < 2) return;
+    autoplayTimer = setInterval(() => go(currentGroup + 1), 3000);
+  }
+
+  function pauseForInteraction() {
+    stopAutoplay();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(startAutoplay, 3000);
+  }
+
+  renderDots();
+  prev?.addEventListener("click", () => { go(currentGroup - 1); pauseForInteraction(); });
+  next?.addEventListener("click", () => { go(currentGroup + 1); pauseForInteraction(); });
+  const viewport = carousel.querySelector(".reviews-carousel-viewport");
+  viewport?.addEventListener("mouseenter", stopAutoplay);
+  viewport?.addEventListener("mouseleave", startAutoplay);
+  viewport?.addEventListener("focusin", stopAutoplay);
+  viewport?.addEventListener("focusout", (event) => {
+    if (!viewport.contains(event.relatedTarget)) startAutoplay();
+  });
+  viewport?.addEventListener("touchstart", (event) => {
+    stopAutoplay();
+    touchX = event.touches[0].clientX;
+  }, { passive: true });
+  viewport?.addEventListener("touchend", (event) => {
+    const distance = touchX - event.changedTouches[0].clientX;
+    if (Math.abs(distance) > 42) go(currentGroup + (distance > 0 ? 1 : -1));
+    pauseForInteraction();
+  }, { passive: true });
+  window.addEventListener("resize", () => {
+    renderDots();
+    go(currentGroup);
+    startAutoplay();
+  });
+  reducedMotion.addEventListener?.("change", startAutoplay);
+  new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+    isVisible ? startAutoplay() : stopAutoplay();
+  }, { threshold: 0.25 }).observe(carousel);
+  go(0);
+  startAutoplay();
+}
+
+window.addEventListener("reviews:rendered", initReviewsCarousel);
+
 // -- Gallery tabs --
 document.querySelectorAll(".proj-tab").forEach((tab) => {
   tab.addEventListener("click", () => {

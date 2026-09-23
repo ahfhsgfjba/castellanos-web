@@ -288,7 +288,34 @@
   }
 
   function renderReviews(data) {
-    $(".reviews-section")?.remove();
+    const carousel = $("#tt-review-carousel");
+    const track = $("[data-reviews-track]", carousel);
+    const reviews = (data.reviews || []).filter((review) => review && review.active !== false && review.source === "Thumbtack");
+    if (!carousel || !track) return;
+    track.innerHTML = reviews.map((review) => {
+      const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
+      const stars = "★".repeat(rating);
+      const initials = esc(String(review.reviewerName || "?").trim().charAt(0).toUpperCase());
+      return `<article class="review-slide" aria-label="Review from ${esc(review.reviewerName)}">
+        <div class="review-card">
+          <div class="review-card-header">
+            <span class="review-avatar" aria-hidden="true">${initials}</span>
+            <div class="review-identity">
+              <strong>${esc(review.reviewerName)}</strong>
+              <span class="review-verified">Verified customer</span>
+            </div>
+            <span class="review-source">Thumbtack</span>
+          </div>
+          <div class="review-rating-row">
+            <div class="review-stars" aria-label="${rating} out of 5 stars">${stars}</div>
+            <span class="review-rating-label">${rating}.0</span>
+          </div>
+          <p class="review-text">${esc(review.reviewText)}</p>
+          <div class="review-card-footer"><span>Thumbtack review</span></div>
+        </div>
+      </article>`;
+    }).join("");
+    window.dispatchEvent(new CustomEvent("reviews:rendered"));
   }
 
   function injectTracking(data) {
