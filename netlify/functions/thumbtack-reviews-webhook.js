@@ -78,7 +78,8 @@ exports.handler = async (event) => {
     return response(401, { error: "Unauthorized" });
   }
 
-  const { getStore } = await import("@netlify/blobs");
+  const { connectLambda, getStore } = await import("@netlify/blobs");
+  connectLambda(event);
   const body = decodeBody(event);
   const captureId = `capture-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const capture = {
