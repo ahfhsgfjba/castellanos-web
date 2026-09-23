@@ -1,6 +1,17 @@
-const { getStore } = require("@netlify/blobs");
 const crypto = require("crypto");
-const { response } = require("./_shared");
+
+const jsonHeaders = {
+  "Content-Type": "application/json",
+  "Cache-Control": "no-store"
+};
+
+function response(statusCode, data) {
+  return {
+    statusCode,
+    headers: jsonHeaders,
+    body: JSON.stringify(data)
+  };
+}
 
 const WEBHOOK_STORE = "castellanos-thumbtack-webhooks";
 const WEBHOOK_SECRET_HEADER = "x-castellanos-webhook-secret";
@@ -67,6 +78,7 @@ exports.handler = async (event) => {
     return response(401, { error: "Unauthorized" });
   }
 
+  const { getStore } = await import("@netlify/blobs");
   const body = decodeBody(event);
   const captureId = `capture-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const capture = {
